@@ -6,7 +6,9 @@
 		<div class="content">
 			<div class="canvases">
 				<div class="input">
+					<h3>Draw digit(s) here:</h3>
 					<canvas id="InputCanvas" width="256" height="256"></canvas>
+					<strong class="strong">Choose digit(s) to show:</strong>
 					<form class="form-inline" id="ChooseNumber">
 						<div class="form-group">
 							<label class="checkbox-inline">
@@ -40,12 +42,13 @@
 								<input type="checkbox" name="checkbox" id="inlineCheckbox3" value="9"> 9
 							</label>
 							<div class="buttons">
-								<input class="btn btn-default" type="button" value="Send" id="btn" size="30" onclick="Send()">
+								<input class="btn btn-success" type="button" value="Recognize" id="btn" size="30" onclick="Send()">
 								<input class="btn btn-default" type="button" value="Clear" id="clr" size="23" onclick="erase()">
 							</div>
 						</div>
 					</form>
 				</div>
+				<h3>Recognizied digit(s):</h3>
 				<img id="ResultImg" width="260" height="260" class="img-rounded"></img>
 			</div>
 		</div>
