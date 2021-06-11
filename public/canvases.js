@@ -46,20 +46,41 @@ function erase() {
   document.getElementById("ResultImg").src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 }
 
-async function Send() {
+function getCheckedBoxes(chkboxName) {
+  var checkboxes = document.getElementsByName(chkboxName)
+  var checkboxesChecked = []
+  for (var i=0; i<checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      checkboxesChecked.push(parseInt(checkboxes[i].value))
+    }
+  }
+
+  return checkboxesChecked.length > 0 ? checkboxesChecked : null
+}
+
+function Send() {
   var dataURL = inputCanvas.toDataURL('image/png')
 
-  await fetch('http://127.0.0.1:5000', {
+  var digits = getCheckedBoxes("checkbox")
+
+  if (!digits) {
+    digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  }
+
+  fetch('http://127.0.0.1:5000', {
     method: "POST",
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded"'
+      'Content-Type': 'application/json'
     },
-    body: dataURL.replace('data:image/png;base64,', '')
+    body: JSON.stringify({
+      base64Img: dataURL.replace('data:image/png;base64,', ''),
+      digits
+    })
   })
     .then(response => response.text())
     .then(body => {
       const image = document.getElementById('ResultImg')
-      image.src = "data:image/png;base64," + body
+      image.src = body
     })
 }
 
