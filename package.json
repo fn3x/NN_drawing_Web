@@ -1,0 +1,16 @@
+{
+  "name": "neural_net",
+  "version": "1.0.0",
+  "description": "neural net recognition of numbers",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Art",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.12.3",
+    "xmlhttprequest": "^1.8.0"
+  }
+}

@@ -1,0 +1,17 @@
+<html>
+  <script type="text/javascript" src="canvases.js"></script>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<body onload="init()">
+		<div class="content">
+			<div class="canvases">
+				<canvas id="InputCanvas" width="256" height="256"></canvas>
+				<img id="ResultImg" width="260" height="260" class="img-rounded"></img>
+			</div>
+			<div class="buttons">
+				<input class="btn btn-default" type="button" value="Send" id="btn" size="30" onclick="Send()">
+				<input class="btn btn-default" type="button" value="Clear" id="clr" size="23" onclick="erase()">
+			</div>
+		</div>
+  </body>
+  </html>
